@@ -1,0 +1,21 @@
+{{define "main"}}
+    <article>
+        <header>
+            {{if (isset .Params "image")}}
+                <img class="imgOf" src="{{.Params.Image}}" alt="">
+            {{end}}
+            <h1 id="title">{{ .Title }}</h1>
+
+            <label>Tags: </label>
+            {{ range .Params.tags }}
+                <a href="/tags/{{ . | urlize }}" class="tags">{{ . }}</a>
+            {{ end }}
+            <h4>{{ .Date.Format "January 2, 2006" }}</h4>
+        </header>
+        <article>
+            {{ .Content }}
+        </article>
+        <a class="backB" href="./..">back</a>
+        <a class="backB" href="#title">top</a>
+    </article>
+{{end}}

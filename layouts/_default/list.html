@@ -1,0 +1,22 @@
+{{define "main"}}
+    <main>
+        <ul>
+            {{range .Pages}}
+                <li >
+                    <a id="singleEnter" href="{{.RelPermalink}}">{{.Title}}</a>
+                    <time>{{.Date.Format "January 2, 2006"}}</time>
+                    {{$image := .Params.image}}
+                    <p>{{ .Params.description | truncate 40 }}</p>
+                    {{if (isset .Params "image")}}
+                    <img class="miImg" src="{{.Params.image}}" alt="">
+                    <img class="bigImg" src="{{.Params.image}}" alt="big image">
+                    {{end}}
+                </li>
+            {{end}}
+        </ul>  
+    </main>
+
+    {{if ne .RelPermalink "/" }}
+        <a class="backB" href="./..">back</a>
+    {{end}}
+{{end}}
