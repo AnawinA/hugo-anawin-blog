@@ -1,0 +1,4 @@
+[submodule "anawin-hugo-blog"]
+	path = anawin-hugo-blog
+	url = https://github.com/AnawinA/anawin-hugo-blog.git
+	branch = main
